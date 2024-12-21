@@ -4,12 +4,30 @@ import { formInitialValues } from "../../utils/constants";
 import TextArea from "./TextArea";
 import CategoryInput from "./CategoryInput";
 import { OptionContextProvider } from "../../context/categoryOptionsContext";
+import { useMutation } from "react-query";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 
 function CreateFaqForm() {
+  const { isLoading, isError, isSuccess, mutate, status } = useMutation(
+    (values) => {
+      return axios.post("http://localhost:7800/faq/new", values);
+    },
+    {
+      onSuccess: () => toast("FAQ Added 🎉"),
+    }
+  );
+
   return (
     <OptionContextProvider>
       <div className="flex flex-col items-center">
-        <Formik initialValues={formInitialValues} onSubmit={handleFormSubmit}>
+        <ToastContainer />
+        <Formik
+          initialValues={formInitialValues}
+          onSubmit={(values, formikHelpers) => {
+            handleFormSubmit(values, formikHelpers, mutate);
+          }}
+        >
           <Form autoComplete="off" className="flex flex-col items-center w-1/2">
             <Field
               component={TextArea}
