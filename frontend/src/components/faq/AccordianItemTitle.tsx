@@ -1,10 +1,15 @@
 import { NavArrowDown, NavArrowUp } from "iconoir-react";
 
-function AccordianItemTitle({ isExpanded }) {
-  const title = "Nth Accordian";
+function AccordianItemTitle({
+  isExpanded,
+  question,
+}: {
+  isExpanded: boolean;
+  question: string;
+}) {
   return (
-    <div className="flex justify-between px-5 py-5 hover:bg-slate-200 hover:cursor-pointer">
-      <h1>{title}</h1>
+    <div className="flex justify-between px-5 py-3 hover:bg-[#EEF4FB] hover:cursor-pointer">
+      <h1 className="font-normal">{question}</h1>
       {isExpanded ? <NavArrowUp /> : <NavArrowDown />}
     </div>
   );

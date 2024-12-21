@@ -1,0 +1,52 @@
+[
+  {
+    "section_title": "General",
+    "content": [
+      {
+        "question": "What is Skylus HCI?",
+        "answer": "Skylus HCI (Hyper-Converged Infrastructure) is a private cloud appliance that combines compute, storage, and network capabilities into a single, easy-to-deploy solution. It offers modular, flexible, and scalable infrastructure to meet various business requirements."
+      },
+      {
+        "question": "What are the key benefits of using Skylus HCI?",
+        "answer": "Skylus HCI provides rapid deployment of virtual machines, scalability without downtime, user-friendly management through an intuitive dashboard, and robust security for business-critical applications."
+      },
+      {
+        "question": "How does Skylus HCI ensure data security?",
+        "answer": "Skylus HCI delivers security in all aspects, including confidentiality, integrity, and availability, ensuring peace of mind while running workloads on the private cloud infrastructure."
+      },
+      {
+        "question": "Can Skylus HCI integrate with existing IT infrastructure?",
+        "answer": "Yes, Skylus HCI is designed to integrate seamlessly with existing IT infrastructure, providing a flexible and scalable solution that aligns with business growth and objectives."
+      },
+      {
+        "question": "What industries can benefit from Skylus HCI?",
+        "answer": "Skylus HCI is versatile and can be utilized across various industries, including retail, government, media and entertainment, healthcare, and more, to enhance IT infrastructure and support business-critical applications."
+      }
+    ]
+  },
+  {
+    "section_title": "Technical",
+    "content": [
+      {
+        "question": "What is the deployment time for Skylus HCI?",
+        "answer": "Skylus HCI enables the deployment of private cloud infrastructure within minutes, allowing for rapid setup of virtual machines, applications, and other network resources."
+      },
+      {
+        "question": "How does Skylus HCI handle scalability?",
+        "answer": "Skylus HCI allows infrastructure to be scaled without interrupting running workloads, ensuring that IT resources can grow in conjunction with business needs without downtime."
+      },
+      {
+        "question": "What management features does the Skylus dashboard offer?",
+        "answer": "The Skylus dashboard provides a single platform for monitoring and managing resources, including features like rapid VM creation, advanced VM creation, quota management for resource allocation, and multi-tenancy support."
+      },
+      {
+        "question": "Does Skylus HCI support multi-tenancy?",
+        "answer": "Yes, Skylus HCI supports multi-tenancy, allowing for resource allocation and management based on the concept of multiple tenants, enhancing security and resource efficiency."
+      },
+      {
+        "question": "What kind of workloads can Skylus HCI handle?",
+        "answer": "Skylus HCI is designed to handle a wide range of workloads, from small to large, including AI/ML applications, cloud-native environments, edge computing, virtual desktop infrastructure (VDI), and business-critical applications."
+      }
+    ]
+  }
+]

@@ -1,8 +1,7 @@
-function AccordianItemBody() {
-  const testBodyText = "This is jut a demo!";
+function AccordianItemBody({ answer }: { answer: string }) {
   return (
-    <div className="px-5">
-      <h1>{testBodyText}</h1>
+    <div className="px-5 mb-3">
+      <p className="text-gray-700">{answer}</p>
     </div>
   );
 }
