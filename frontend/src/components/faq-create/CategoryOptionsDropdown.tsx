@@ -1,11 +1,13 @@
+import { useField } from "formik";
 import { useOptionsContext } from "../../context/categoryOptionsContext";
 
 function CategoryOptionsDropdown({ options }: { options: string[] }) {
   const { showOptions, setShowOptions } = useOptionsContext()!;
 
-  function handleOptionClick() {
-    // set input value with the option value
+  const [, , helper] = useField("category");
 
+  function handleOptionClick(optionName: string) {
+    helper.setValue(optionName);
     setShowOptions(false);
   }
 
@@ -13,14 +15,14 @@ function CategoryOptionsDropdown({ options }: { options: string[] }) {
     <div
       className={
         showOptions
-          ? "flex flex-col absolute w-max max-h-[200px] overflow-y-auto scroll-smooth mt-1 visible opacity-1 transition ease-out duration-[50ms]"
-          : "absolute flex flex-col w-max max-h-[200px] overflow-y-scroll mt-1 invisible opacity-0 transition ease-out duration-[50ms]"
+          ? "flex flex-col absolute w-[40%] max-h-[200px] overflow-y-auto scroll-smooth mt-1 visible opacity-1 transition ease-out duration-[50ms] z-50 drop-shadow-lg"
+          : "absolute flex flex-col w-[40%] max-h-[200px] overflow-y-scroll mt-1 invisible opacity-0 transition ease-out duration-[50ms] z-50 drop-shadow-lg"
       }
     >
       {options.map((optionName) => (
         <div
-          className="bg-white max-w-[300px] hover:cursor-pointer border-b-2 hover:bg-[#EEF4FB] p-2"
-          onClick={handleOptionClick}
+          className="bg-white w-full hover:cursor-pointer border-b-2 hover:bg-[#EEF4FB] p-2"
+          onClick={() => handleOptionClick(optionName)}
         >
           {optionName}
         </div>

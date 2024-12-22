@@ -1,3 +1,7 @@
 export default function handleFormSubmit(values, formikHelpers, mutate) {
-    mutate(values);
+    mutate(values, {
+        onSuccess : () => {
+            formikHelpers.resetForm();
+        }
+    });
 }

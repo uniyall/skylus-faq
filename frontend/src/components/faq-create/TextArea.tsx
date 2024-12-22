@@ -1,6 +1,6 @@
 import { useId } from "react";
 
-function TextArea({ label, field, placeHolder }) {
+function TextArea({ label, field, placeHolder, disabled }) {
   console.log(field);
   const id = useId();
   return (
@@ -14,6 +14,7 @@ function TextArea({ label, field, placeHolder }) {
         id={id}
         rows={7}
         placeholder={placeHolder}
+        disabled={disabled}
       ></textarea>
     </div>
   );

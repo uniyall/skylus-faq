@@ -55,6 +55,14 @@ app.post('/faq/new', async (req, res) => {
         await newFaq.save();
 
         console.log('Document created!');
+
+        // function sleep(ms) {
+        //     return new Promise((resolve) => {
+        //       setTimeout(resolve, ms);
+        //     });
+        //   }
+
+        //  await sleep(5000); 
         res.status(200).json({
             mesage: 'Document created!'
         })
@@ -62,6 +70,19 @@ app.post('/faq/new', async (req, res) => {
         console.log(e);
         res.status(500).json({
             message: 'Something went wrong'
+        })
+    }
+})
+
+app.get('/faq/options', async (req, res) => {
+    try {
+        const distinctCategories = await Faq.distinct("category").exec();
+        res.status(200).json(distinctCategories)
+    } catch(e)
+    {
+        console.log(e);
+        res.status(500).json({
+            message : 'Something went wrong'
         })
     }
 })
