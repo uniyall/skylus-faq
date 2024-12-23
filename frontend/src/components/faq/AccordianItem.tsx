@@ -11,22 +11,23 @@ function AccordianItem({
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className="border-b-[2px] border-opacity-90 border-[#EEF4FB]">
+    <div>
       <div
         onClick={() => {
           setIsExpanded((s) => !s);
           console.log("clicked");
         }}
-        className="select-none target:border target:border-blue-500 "
+        className="select-none target:border"
       >
         <AccordianItemTitle question={question} isExpanded={isExpanded} />
       </div>
       <div
-        className={
+        data-active={isExpanded}
+        className={`${
           isExpanded
             ? "visible opacity-1 transition ease-linear duration-[50ms]"
             : "absolute invisible opacity-0 transition ease-linear duration-[50ms]"
-        }
+        } data-[active=true]:bg-blue-100/10`}
       >
         <AccordianItemBody answer={answer} />
       </div>

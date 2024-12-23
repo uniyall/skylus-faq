@@ -10,9 +10,9 @@ import { toast, ToastContainer } from "react-toastify";
 import Loader from "../Loader";
 import formValidationSchema from "../../utils/formValidationSchema";
 import FormError from "./FormError";
+import { Home } from "iconoir-react";
 
 function CreateFaqForm() {
-
   const queryClient = useQueryClient();
 
   const { isLoading, mutate } = useMutation(
@@ -21,21 +21,21 @@ function CreateFaqForm() {
     },
     {
       onSuccess: () => {
-        toast("FAQ Added successfully", { 
+        toast("FAQ Added successfully", {
           hideProgressBar: true,
-          type : "success"
+          type: "success",
         });
 
         queryClient.invalidateQueries({
-          queryKey : 'faqs'
-        })
-
+          queryKey: "faqs",
+        });
       },
-      onError : () => toast("Unable to submit FAQ, please try again!", {
-        className : 'bg-red-600 text-white', 
-        hideProgressBar: true,
-        type : "error"
-      })
+      onError: () =>
+        toast("Unable to submit FAQ, please try again!", {
+          className: "bg-red-600 text-white",
+          hideProgressBar: true,
+          type: "error",
+        }),
     }
   );
 
@@ -50,23 +50,32 @@ function CreateFaqForm() {
           }}
           validationSchema={formValidationSchema}
         >
-          <Form autoComplete="off" className="flex flex-col items-center w-1/2">
+          <Form
+            autoComplete="off"
+            className="flex flex-col items-center w-1/2 shadow-xl p-5 rounded-lg border bg-white"
+          >
             <Field
               component={TextArea}
               name="question"
               label="Question"
               placeHolder="Question for FAQ"
               disabled={isLoading}
+              rows={2}
             />
-            <FormError name={"question"}/>
+            <FormError name={"question"} />
             <Field
               component={TextArea}
               name="answer"
-              label="Answer"
+              label={
+                <>
+                  Answer{" "}
+                  <small className="text-gray-500">(Markdown enabled)</small>
+                </>
+              }
               placeHolder="Answer for FAQ"
               disabled={isLoading}
             />
-             <FormError name={"answer"}/>
+            <FormError name={"answer"} />
             <Field
               component={CategoryInput}
               name="category"
@@ -74,18 +83,23 @@ function CreateFaqForm() {
               placeHolder="Category for FAQ"
               disabled={isLoading}
             />
-            <div className="relative w-full my-5">
-              <div className="invisible">a</div>
-              <FormError name={"category"}/>
+
+            <FormError name={"category"} />
+            <div className="flex self-end gap-x-2">
+              <a
+                href="/"
+                className="text-blue-500 bg-white border border-blue-500 px-3 py-2 items-center rounded-md hover:shadow-lg flex gap-x-2"
+              >
+                <Home className="size-4" /> Home
+              </a>
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-3 py-2 rounded-md hover:shadow-lg min-h-6 w-28"
+                disabled={isLoading}
+              >
+                {isLoading ? <Loader /> : "Create FAQ"}
+              </button>
             </div>
-            
-            <button
-              type="submit"
-              className="bg-blue-500 text-white p-2 rounded-md hover:shadow-md min-h-6 w-16 my-5"
-              disabled={isLoading}
-            >
-              {isLoading ? <Loader /> : 'Submit'}
-            </button>
           </Form>
         </Formik>
       </div>

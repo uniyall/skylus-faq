@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 
 function FaqAccordian() {
   const { isLoading, isError, data, error } = useQuery("faqs", {
-    cacheTime: 20000,
+    cacheTime: 0,
     queryFn: async () => {
       const { data, status } = await axios.get("http://localhost:7800/faq");
       console.log(data);
@@ -13,17 +13,15 @@ function FaqAccordian() {
     },
   });
   return (
-    <div className="w-full h-full bg-white">
+    <div className="w-full h-full p-5 bg-white rounded-xl border shadow-xl flex flex-col gap-4 mt-2.5">
       {data ? (
         data.map((s) => (
-          <div className="">
-            <h1 className="text-center font-bold mb-5 mt-7 text-xl tracking-widest text-[#47ADEA]">
-              {s.section_title.toUpperCase()}
+          <div className="flex flex-col gap-3">
+            <h1 className=" font-extrabold text-xl text-blue-500">
+              {s.section_title}
             </h1>
             {s.content.map((i) => (
-              <div>
-                <AccordianItem question={i.question} answer={i.answer} />
-              </div>
+              <AccordianItem question={i.question} answer={i.answer} />
             ))}
           </div>
         ))

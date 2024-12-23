@@ -5,3 +5,7 @@ export const Faq = mongoose.model('Faq', {
     answer: String,
     category: String
 })
+
+export const SuperUser = mongoose.model('superusers', {
+    password: String
+}, 'superusers')

@@ -23,15 +23,15 @@ function CategoryInput({
 
   const id = useId();
   return (
-    <div className="w-full relative">
+    <div className="w-full relative mb-1">
       <OutsideAlerter>
-        <label className="text-xl" htmlFor={id}>
+        <label className="text-md text-gray-600" htmlFor={id}>
           {label}
         </label>
 
         <input
           type="text"
-          className="w-full p-2 outline-1 outline-blue-100"
+          className="text-md text-gray-600 w-full p-2 mt-1.5 outline-1 outline-blue-100 border shadow-sm shadow-gray-200 border-gray-200 rounded-md"
           {...field}
           id={id}
           onClick={() => setShowOptions(true)}

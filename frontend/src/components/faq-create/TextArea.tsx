@@ -1,18 +1,18 @@
 import { useId } from "react";
 
-function TextArea({ label, field, placeHolder, disabled }) {
+function TextArea({ label, field, placeHolder, disabled, rows = 7 }) {
   console.log(field);
   const id = useId();
   return (
     <div className="w-full">
-      <label className="text-xl" htmlFor={id}>
+      <label className="text-md text-gray-600" htmlFor={id}>
         {label}
       </label>
       <textarea
-        className="w-full p-2 outline-1 outline-blue-100"
+        className="text-md text-gray-600 w-full mt-1.5 p-2 outline-1 outline-blue-100 border shadow-sm shadow-gray-200 border-gray-200 rounded-md"
         {...field}
         id={id}
-        rows={7}
+        rows={rows}
         placeholder={placeHolder}
         disabled={disabled}
       ></textarea>

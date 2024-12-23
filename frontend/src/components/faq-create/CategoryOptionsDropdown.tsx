@@ -21,7 +21,7 @@ function CategoryOptionsDropdown({ options }: { options: string[] }) {
     >
       {options.map((optionName) => (
         <div
-          className="bg-white w-full hover:cursor-pointer border-b-2 hover:bg-[#EEF4FB] p-2"
+          className="bg-white text-xs text-gray-600 w-full hover:cursor-pointer border-b-2 hover:bg-blue-50 p-2"
           onClick={() => handleOptionClick(optionName)}
         >
           {optionName}

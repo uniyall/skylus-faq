@@ -7,7 +7,7 @@ export default function useCategoryOptions(fieldValue: string) {
   const [filteredOptions, setFilteredOptions] = useState<string[]>(options);
 
   const { data } = useQuery("faqs", {
-    cacheTime: 20000,
+    cacheTime: 5000,
     queryFn: async () => {
       const { data } = await axios.get("http://localhost:7800/faq/options");
       console.log(data);

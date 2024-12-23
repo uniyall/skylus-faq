@@ -11,20 +11,20 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as FaqIndexImport } from './routes/faq/index'
-import { Route as AdminFaqNewIndexImport } from './routes/admin/faq/new/index'
+import { Route as IndexImport } from './routes/index'
+import { Route as CreateIndexImport } from './routes/create/index'
 
 // Create/Update Routes
 
-const FaqIndexRoute = FaqIndexImport.update({
-  id: '/faq/',
-  path: '/faq/',
+const IndexRoute = IndexImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AdminFaqNewIndexRoute = AdminFaqNewIndexImport.update({
-  id: '/admin/faq/new/',
-  path: '/admin/faq/new/',
+const CreateIndexRoute = CreateIndexImport.update({
+  id: '/create/',
+  path: '/create/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -32,18 +32,18 @@ const AdminFaqNewIndexRoute = AdminFaqNewIndexImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/faq/': {
-      id: '/faq/'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqIndexImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/admin/faq/new/': {
-      id: '/admin/faq/new/'
-      path: '/admin/faq/new'
-      fullPath: '/admin/faq/new'
-      preLoaderRoute: typeof AdminFaqNewIndexImport
+    '/create/': {
+      id: '/create/'
+      path: '/create'
+      fullPath: '/create'
+      preLoaderRoute: typeof CreateIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -52,38 +52,38 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/faq': typeof FaqIndexRoute
-  '/admin/faq/new': typeof AdminFaqNewIndexRoute
+  '/': typeof IndexRoute
+  '/create': typeof CreateIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/faq': typeof FaqIndexRoute
-  '/admin/faq/new': typeof AdminFaqNewIndexRoute
+  '/': typeof IndexRoute
+  '/create': typeof CreateIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/faq/': typeof FaqIndexRoute
-  '/admin/faq/new/': typeof AdminFaqNewIndexRoute
+  '/': typeof IndexRoute
+  '/create/': typeof CreateIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/faq' | '/admin/faq/new'
+  fullPaths: '/' | '/create'
   fileRoutesByTo: FileRoutesByTo
-  to: '/faq' | '/admin/faq/new'
-  id: '__root__' | '/faq/' | '/admin/faq/new/'
+  to: '/' | '/create'
+  id: '__root__' | '/' | '/create/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  FaqIndexRoute: typeof FaqIndexRoute
-  AdminFaqNewIndexRoute: typeof AdminFaqNewIndexRoute
+  IndexRoute: typeof IndexRoute
+  CreateIndexRoute: typeof CreateIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  FaqIndexRoute: FaqIndexRoute,
-  AdminFaqNewIndexRoute: AdminFaqNewIndexRoute,
+  IndexRoute: IndexRoute,
+  CreateIndexRoute: CreateIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -96,15 +96,15 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/faq/",
-        "/admin/faq/new/"
+        "/",
+        "/create/"
       ]
     },
-    "/faq/": {
-      "filePath": "faq/index.tsx"
+    "/": {
+      "filePath": "index.tsx"
     },
-    "/admin/faq/new/": {
-      "filePath": "admin/faq/new/index.tsx"
+    "/create/": {
+      "filePath": "create/index.tsx"
     }
   }
 }

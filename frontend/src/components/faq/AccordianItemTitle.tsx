@@ -1,4 +1,4 @@
-import { NavArrowDown, NavArrowUp } from "iconoir-react";
+import { MinusSquareSolid, PlusSquareSolid } from "iconoir-react";
 
 function AccordianItemTitle({
   isExpanded,
@@ -8,9 +8,13 @@ function AccordianItemTitle({
   question: string;
 }) {
   return (
-    <div className="flex justify-between px-5 py-3 hover:bg-[#EEF4FB] hover:cursor-pointer">
-      <h1 className="font-normal">{question}</h1>
-      {isExpanded ? <NavArrowUp /> : <NavArrowDown />}
+    <div className="flex items-center justify-between text-gray-600 px-3 py-1.5 rounded-md bg-blue-50 hover:cursor-pointer">
+      <h1 className="font-normal text-base">{question}</h1>
+      {isExpanded ? (
+        <MinusSquareSolid className="text-red-600 text-xs" />
+      ) : (
+        <PlusSquareSolid className="text-emerald-600 text-xs" />
+      )}
     </div>
   );
 }
