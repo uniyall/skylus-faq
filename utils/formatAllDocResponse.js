@@ -7,7 +7,8 @@ export default function formatAllDocResponse(docs, uniqueArray) {
                 if (d.category == c) {
                     res.push({
                         question: d.question,
-                        answer: d.answer
+                        answer: d.answer,
+                        id: d._id
                     })
                 }
                 return res;

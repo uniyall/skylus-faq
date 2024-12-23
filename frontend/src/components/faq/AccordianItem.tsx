@@ -5,20 +5,17 @@ import AccordianItemTitle from "./AccordianItemTitle";
 function AccordianItem({
   question,
   answer,
+  isExpanded,
+  onClick,
 }: {
   question: string;
   answer: string;
+  isExpanded: boolean;
+  onClick: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const [isExpanded, setIsExpanded] = useState(false);
   return (
     <div>
-      <div
-        onClick={() => {
-          setIsExpanded((s) => !s);
-          console.log("clicked");
-        }}
-        className="select-none target:border"
-      >
+      <div onClick={onClick} className="select-none target:border">
         <AccordianItemTitle question={question} isExpanded={isExpanded} />
       </div>
       <div

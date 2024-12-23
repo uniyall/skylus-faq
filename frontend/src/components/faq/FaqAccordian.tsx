@@ -1,8 +1,11 @@
 import axios from "axios";
 import AccordianItem from "./AccordianItem";
 import { useQuery } from "react-query";
+import { useState } from "react";
 
 function FaqAccordian() {
+  const [activeItemId, setActiveItemId] = useState<string>("");
+  console.log(activeItemId);
   const { isLoading, isError, data, error } = useQuery("faqs", {
     cacheTime: 0,
     queryFn: async () => {
@@ -21,7 +24,18 @@ function FaqAccordian() {
               {s.section_title}
             </h1>
             {s.content.map((i) => (
-              <AccordianItem question={i.question} answer={i.answer} />
+              <AccordianItem
+                question={i.question}
+                answer={i.answer}
+                isExpanded={i.id === activeItemId}
+                onClick={() => {
+                  if (i.id === activeItemId) {
+                    console.log("hfjdhdjfh");
+                    return setActiveItemId("");
+                  }
+                  setActiveItemId(i.id);
+                }}
+              />
             ))}
           </div>
         ))

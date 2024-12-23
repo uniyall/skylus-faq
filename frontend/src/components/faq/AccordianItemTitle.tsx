@@ -1,4 +1,4 @@
-import { MinusSquareSolid, PlusSquareSolid } from "iconoir-react";
+import { Minus, Plus } from "iconoir-react";
 
 function AccordianItemTitle({
   isExpanded,
@@ -11,9 +11,9 @@ function AccordianItemTitle({
     <div className="flex items-center justify-between text-gray-600 px-3 py-1.5 rounded-md bg-blue-50 hover:cursor-pointer">
       <h1 className="font-normal text-base">{question}</h1>
       {isExpanded ? (
-        <MinusSquareSolid className="text-red-600 text-xs" />
+        <Minus className="text-gray-600 text-xs font-bold" />
       ) : (
-        <PlusSquareSolid className="text-emerald-600 text-xs" />
+        <Plus className="text-gray-600 text-xs font-bold" />
       )}
     </div>
   );
