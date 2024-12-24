@@ -60,7 +60,7 @@ function CreateFaqForm() {
               label="Question"
               placeHolder="Question for FAQ"
               disabled={isLoading}
-              rows={2}
+              rows={1}
             />
             <FormError name={"question"} />
             <Field
@@ -88,13 +88,13 @@ function CreateFaqForm() {
             <div className="flex self-end gap-x-2">
               <a
                 href="/"
-                className="text-blue-500 bg-white border border-blue-500 px-3 py-2 items-center rounded-md hover:shadow-lg flex gap-x-2"
+                className="text-blue-500 bg-white border border-blue-500 px-2 py-2 text-sm items-center rounded-md hover:shadow-md flex gap-x-2"
               >
                 <Home className="size-4" /> Home
               </a>
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-3 py-2 rounded-md hover:shadow-lg min-h-6 w-28"
+                className="bg-blue-500 text-white px-2 py-2 rounded-md hover:shadow-md min-h-6 w-28 text-sm"
                 disabled={isLoading}
               >
                 {isLoading ? <Loader /> : "Create FAQ"}
